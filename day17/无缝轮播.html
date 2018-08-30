@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 1130px;
+				height: 300px;
+				margin: 20px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#image {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			#image a {
+				float: left;
+				width: 1130px;
+				height: 300px;
+			}
+			
+			#image a img {
+				width: 1130px;
+				height: 300px;
+			}
+			
+			input {
+				width: 50px;
+				height: 50px;
+				border: 0;
+				border-radius: 50%;
+				background: rgba(200, 200, 200, 0.8);
+				position: absolute;
+				top: 125px;
+				z-index: 99999999;
+			}
+			
+			input#pre {
+				left: 20px;
+			}
+			
+			input#next {
+				right: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="image">
+				<a href="#"><img src="https://img.zcool.cn/community/01c4005b863607a80120245cc788a1.jpg@1380w" /></a>
+				<a href="#"><img src="https://img.zcool.cn/community/01ad8c5b8679f9a80120245c07eaae.jpg@1380w" /></a>
+				<a href="#"><img src="https://img.zcool.cn/community/0174f85b8422f2a8012190f2b97fa9.png@1380w" /></a>
+				<a href="#"><img src="https://img.zcool.cn/community/01327f5b8422c7a80120577d2aa796.png@1380w" /></a>
+				<a href="#"><img src="https://img.zcool.cn/community/01b13f5b861174a80120245c8869db.png@1380w" /></a>
+				<a href="#"><img src="https://img.zcool.cn/community/01c4005b863607a80120245cc788a1.jpg@1380w" /></a>
+			</div>
+			<input type="button" id="pre" value="<<<" />
+			<input type="button" id="next" value=">>>" />
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var next = document.getElementById('next');
+	var pre = document.getElementById('pre');
+	var images = document.getElementById('image');
+	var oa = images.children;
+
+	images.style.width = oa.length * oa[0].offsetWidth + "px";
+
+	var index = 0;
+	next.onclick = function() {
+		if(index == oa.length - 1) {
+			index = 1;
+			images.style.left = "0";
+		} else {
+			index++;
+		}
+		move(images, {left: -index * oa[0].offsetWidth});
+
+	}
+
+	pre.onclick = function() {
+		if(index == 0) {
+			index = oa.length - 1;
+			images.style.left = -oa[0].offsetWidth * index + "px";
+			index = index - 1;
+		} else {
+			index--;
+		}
+		move(images, {
+			left: -oa[index].offsetWidth * index
+		});
+	}
+
+	function move(ele, json, callback) {
+		clearInterval(ele.timer);
+		ele.timer = setInterval(function() {
+			var onOff = true;
+			for(var attr in json) {
+				var iNow = attr == "opacity" ? getstyle(ele, attr) * 100 : parseInt(getstyle(ele, attr));
+				var speed = (json[attr] - iNow) / 6;
+				speed = speed < 0 ? Math.floor(speed) : Math.ceil(speed);
+
+				if(json[attr] != iNow) {
+					onOff = false;
+				}
+
+				if(attr == "opacity") {
+					ele.style[attr] = (iNow + speed) / 100;
+					ele.style.filter = "alpha(opacity=" + (iNow + speed) + ")"
+				} else {
+					ele.style[attr] = iNow + speed + "px";
+				}
+			}
+			if(onOff) {
+				clearInterval(ele.timer);
+				if(callback)
+					callback();
+			}
+		}, 30)
+	}
+
+	function getstyle(ele, attr) {
+		if(ele.currentStyle) {
+			return ele.currentStyle[attr];
+		} else {
+			return getComputedStyle(ele, false)[attr];
+		}
+	}
+</script>

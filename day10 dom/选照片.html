@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			body {
+				background: #999;
+			}
+			
+			#box {
+				width: 800px;
+				margin: 90px 0 0 190px;
+			}
+			
+			h2 {
+				font: 15px/60px '';
+			}
+			
+			#con {
+				clear: both;
+				height:120px;
+			}
+			
+			#con li {
+				float: left;
+				margin-right: 10px;
+			}
+			
+			#con li a {}
+			
+			#con li a img {
+				border: 0;
+			}
+			#image{
+			    width:450px;
+			    height:300px;
+			    border:1px solid #000;
+			}
+			p{font:14px/30px '';}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<h2>相册</h2>
+			<div id="con">
+				<ul>
+					<li>
+						<a href="img/1.jpeg" title="A" onclick="shou(this);return false;" >
+							<img src="img/1.jpeg" style="width:190px; height:90px;" />
+						</a>
+					</li>
+					<li>
+						<a href="img/2.jpeg" title="B" onclick="shou(this); return false;">
+							<img src="img/2.jpeg" style="width:190px; height:90px;" />
+						</a>
+					</li>
+					<li>
+						<a href="img/3.jpeg" title="C" onclick="shou(this); return false;">
+							<img src="img/1.jpeg" style="width:190px; height:90px;" />
+						</a>
+					</li>
+					<li>
+						<a href="img/4.jpeg" title="D" onclick="shou(this); return false;">
+							<img src="img/2.jpeg" style="width:190px;height:90px;" />
+						</a>
+					</li>
+				</ul>
+			</div>
+			<img id="image" src="img/1.jpeg"/>
+			<p id="des">选择一张图片</p>
+		</div>
+
+	</body>
+
+</html>
+<script type="text/javascript">
+		function shou(link){
+			
+			//切换图片
+			//获取当前link中img
+			
+			var img=document.getElementById('image');
+			img.src=link.href;
+
+			//改变p中文字
+			var p=document.getElementById('des');
+			p.innerHTML=link.title;
+		}
+</script>

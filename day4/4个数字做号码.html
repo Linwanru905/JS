@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function jiami(nums){
+//假设该四位数是abcd,将这个四位数进行拆分
+           var a=parseInt(nums/1000%10); //1
+           var b=parseInt(nums/100%10); //2
+           var c=parseInt(nums/10%10); //3
+           var d=parseInt(nums%10); //4
+//每位数字都加上5,然后用和除以10的余数代替该数字
+              a=(a+5)%10;
+              b=(b+5)%10;
+              c=(c+5)%10;
+              d=(d+5)%10;
+             nums = 1000*d+100*c+10*b+a;
+             return nums;
+    }
+      console.log(jiami(1234));
+</script>

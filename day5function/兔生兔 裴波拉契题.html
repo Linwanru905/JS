@@ -1,0 +1,18 @@
+	 <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function rab(n){
+		if(n == 1 || n == 2){
+			return 1;
+		}
+		return rab(n-1)+ rab(n-2);
+	}
+	document.write(rab(4));
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				background: #000;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oDiv = document.getElementById('box');
+	var clientW = document.documentElement.clientWidth;
+	var clientH = document.documentElement.clientHeight;
+
+	oDiv.onmousedown = function(eve) {
+		//		console.log(1);
+		var e = eve || window.element;
+		//获取鼠标按下时位置
+		var disX = e.offsetX;
+		var disY = e.offsetY;
+		document.onmousemove = function(eve) {
+			var e = eve || window.element;
+			//给document设置边框
+			var l = e.clientX - disX;
+			var t = e.clientY - disY;
+			//判断
+			if(l < 0) l = 0;
+			if (t < 0) t = 0;
+		if(l > clientW - oDiv.offsetWidth)
+			l = clientW - oDiv.offsetWidth;
+		if(t > clientH - oDiv.offsetHeight)
+			t = clientH - oDiv.offsetHeight;
+			//移动时的位置
+		oDiv.style.left = l + 'px';
+		oDiv.style.top = t + 'px';
+	}
+
+	document.onmouseup = function() {
+		document.onmousemove = document.onmouseup = null;
+	}
+
+	}
+
+	function stopBubble(e) {
+		if(e.stopPropagation) {
+			e.stopPropagation();
+		} else {
+			e.cancelBubble = true;
+		}
+	}
+</script>

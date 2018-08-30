@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var liData = ['张三','李四','王五','赵六','宏碁'];
+	var hrefs = ['aaa','bbb','ccc','ddd','eeee'];
+	var arr = liData.map(function(val,index){
+		return "<li><a href='"+ hrefs[index] +"'>" + val + "</a></li>";
+	})
+	
+	for(var i=0; i<arr.length; i++){
+		document.documentElement.innerHTML += arr[i];
+	}
+</script>

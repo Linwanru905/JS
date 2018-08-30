@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{
+				width:500px;
+				height:50px;
+				background:#f90;
+				margin:100px auto;
+				overflow: hidden;
+			}
+			#box>div{
+				width:500px;
+				height:50px;
+				font:18px/50px '';
+			}
+			#box>div>div{
+				float:left;
+				width:250px;
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div>
+				<div>心有彩虹，即使阴天也无畏</div>
+				<div>心有彩虹，即使阴天也无畏</div>
+				<div>心有彩虹，即使阴天也无畏</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var obj=document.getElementById('box').firstElementChild;     //获取要滚动的div
+	var num=0;
+	//设置一个定时器
+	setInterval(function(){
+		num +=0.2;
+		//做一个简单的判断
+		if(num>=100){
+			num=0;
+		}
+			obj.style.marginLeft=-num +'px';
+	},2)
+	
+</script>

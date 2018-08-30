@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var i=0;
+	
+	for(i; i<=100;i++){
+		var ge=i %10 ;                 //求个位为7的数
+		var shi=parseInt(i/10);        //求十位为7的数
+		
+		if(i % 7 == 0 || ge == 7 || shi == 7) {
+			document.write(i + ' ');
+		}
+    }
+
+</script>

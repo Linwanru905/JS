@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 100px;
+				height: 200px;
+				border: 1px solid #000;
+				position: absolute;
+				margin: 40px 0;
+				color: red;
+				background: #000;
+				left: -100px;
+			}
+			
+			p {
+				float: left;
+				width: 20px;
+				font: 14px/28px '';
+				color: red;
+				background: #000;
+				position: absolute;
+				right: -20px;
+				top: 60px
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li>Link1</li>
+				<li>Link2</li>
+				<li>Link3</li>
+				<li>Link4</li>
+				<li>Link5</li>
+				<li>Link6</li>
+			</ul>
+			<p>咨<br />询</p>
+		</div>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+		<h1>hahhaha</h1>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oP = document.getElementsByTagName('p')[0];
+	var oBox = document.getElementById('box');
+	var oUl = document.getElementsByTagName('ul')[0];
+	//	console.log(oUl.offsetWidth+oP.offsetWidth);
+    var t= oBox.offsetTop;
+	//运动三要素
+	var timer = null;
+	oBox.onmouseout = function() {
+		move(-102);
+	}
+	oBox.onmouseover = function() {
+		move(0);
+	}
+
+	onscroll = function() {
+		var scrollT = document.documentElement.scrollTop;
+		var target = t + scrollT;
+		moveT(target);
+	}
+
+	function move(target) {
+		clearInterval(timer);
+		timer = setInterval(function() {
+			var speed = (target - oBox.offsetLeft) / 6;
+			speed = speed < 0 ? Math.floor(speed) : Math.ceil(speed);
+			if(oBox.offsetLeft == target) {
+				clearInterval(timer);
+			} else {
+				oBox.style.left = speed + oBox.offsetLeft + "px";
+			}
+
+		}, 30)
+	}
+
+	function moveT(target) {
+		clearInterval(timer);
+		timer = setInterval(function() {
+			var speed = (target - oBox.offsetTop) / 6;
+			speed = speed < 0 ? Math.floor(speed) : Math.ceil(speed);
+			if(oBox.offsetTop == target) {
+				clearInterval(timer);
+			} else {
+				oBox.style.top = speed + oBox.offsetTop + "px";
+			}
+
+		}, 30)
+	}
+</script>

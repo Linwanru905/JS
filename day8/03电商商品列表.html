@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{list-style: none;}
+			div{width: 1000px;height: 200px;}
+			div ul{display: flex;justify-content: space-around;}
+			div ul li{height: 200px;background: #339999;text-align: center;}
+			div ul li p{font:20px/28px "";color: #242424;}
+			div ul li span{font: 14px/18px "";display: block;color: #666;}
+			div ul li i{display:block;color: rgb(234, 98, 91);font:27px/28px "";margin-top: 7px;}
+			div ul li a{display: block;width: 124px;height: 40px;background: rgb(234, 98, 91);margin: 10px auto;font: 14px/40px;color: #fff;}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul id="ul"></ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var ul = document.getElementById("ul");
+//	这里的数据,应该是从后台发送来的,通过ajax技术
+	var liData = [
+		{ "src" : 'aG.png',"title" : '小米3',"note" : "这款手机很棒的", "price" : "￥1800"},
+		{ "src" : '03.png',"title" : '小米4',"note" : "谁来代言呢？", "price" : "￥1900"},
+		{ "src" : 'aG.png',"title" : '小米5',"note" : "找个衰哥呢？", "price" : "￥2000"},
+		{ "src" : '03.png',"title" : '小米6',"note" : "还是找个霉女呢？", "price" : "￥2100"}
+	];
+//	肯定得遍历
+	for(var i=0,len=liData.length; i<len; i++){
+		ul.innerHTML += '<li><img src="'+liData[i].src+'"/><p>'+liData[i].title+'</p><span>'+liData[i].note+'</span><i>'+liData[i].price+'</i><a href="#">立即购买</a></li>';
+	}
+	
+//	"<li><img src='" + a + ".jpg'><p>" + b + "</p><span>"  + c +  "</span></li>"
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>aabccd统计每个字符出现的次数，结果显示 a 2、b 1、c 2、d1，去掉重复的字符，使结果显示 abcd</p>
+	</body>
+</html>
+<script type="text/javascript">
+	var str="aabccdeeeffg";
+	var arry=[];
+	var n=0;
+	
+	for(var i=0; i<str.length; i++){         //遍历字符串str
+		if(arry.indexOf(str[i]) ==-1 ){
+			arry.push(str[i]);                  //字符串不重复就插入到一个新的数组中
+		}
+//		console.log(str.split(str[i]))
+		n =(str.split(str[i])).length-1;
+		document.write(str[i] + '' +n +'<br />' );
+	}
+//	var kk=arry.join('');
+//  document.write(kk);
+//	
+//	var r,arr = {a,b,c,d,a,b,d};
+//	r = arr.filter(function (element,index,self) {
+//		return self.indexOf(element) === index;
+//	})
+</script>

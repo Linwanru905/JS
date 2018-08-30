@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<img src="../day12/img/1.jpeg" />
+	</body>
+
+</html>
+<script type="text/javascript">
+	var imge = document.getElementsByTagName('img')[0];
+
+	//运动三要素
+	var stopT = 10;
+	var stopB = 100;
+	var num = 100;
+	var timer = null;
+
+	document.onmouseover = function() {
+		removeOpacity(stopT);
+
+	}
+	document.onmouseout = function() {
+        removeOpacity(stopB);
+	}
+
+	function removeOpacity(stop) {
+		clearInterval(timer);
+		timer = setInterval(function() {
+			//定义运动速度
+			var speed = (stop - num) / 6;
+			if(speed < 0) {
+				speed = Math.floor(speed);
+			} else {
+				speed = Math.ceil(speed);
+			}
+
+			//判断停止定时器
+			if(num == stop) {
+				clearInterval(timer);
+			} else {
+				num += speed;
+				imge.style.opacity = num / 100;
+				imge.style.filter = "alpha(opacity= " + num + ")"
+			}
+		}, 100)
+	}
+</script>

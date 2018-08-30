@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			textarea{height: 500px;width: 300px;}
+		</style>
+	</head>
+	<body>
+		<textarea name="" rows="" cols="" id="txt1"></textarea>
+		<input type="button" name="" id="btn" value="转换" />
+		<textarea name="" rows="" cols="" id="txt2"></textarea>
+	</body>
+	<script type="text/javascript">
+//		事件对象
+//		obox.onclick = function(eve){
+//			var e = eve || window.event
+//			e.offsetX
+//			e.clientX
+//			e.pageX
+//			e.screenX
+////			事件冒泡
+//			e.stopPropagation()
+//			e.cancelBubble = true;
+////			默认事件
+//			e.preventDefault()
+//			e.returnValue = false;
+////			return false
+//		}
+//		
+//		
+//		obox.onclick = function(){}
+//		obox.onclick = null;
+//		
+////		DOM2
+//		obox.addEventListener("click",function(){},false)
+//		obox.attachEvent("onclick",function(){})
+//		
+//		obox.removeEventListener("click",fn,false)
+//		obox.detachEvent("onclick",fn)
+//		
+//		ocont.onclick = function(eve){
+//			var e = eve || window.event;
+//			var target = e.target || e.srcElement
+//			if(target.nodeName == "INPUT"){
+//				console.log(target)
+//			}
+//		}
+		
+//		cookie
+//		var d = new Date()
+//		d.setDate(d.getDate()+7);
+//		document.cookie = "name=admin;expires="+d;
+		
+//		正则:
+//		/[^]/
+//		/^$/
+//		/./
+		
+//		贪婪特性
+//		替换字符串中的标签
+		
+//		url
+//(http(s)0次或1次://)0次或1次  (数字字母.-)1个或以上  . (字母.)2到6位  ((数字字母_.-)任意个)任意个  (/)0个或1个
+//		var reg = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/
+//		var str = "https://abc123.abc-1_23.a.b.cabc/abc123_ab/c1/23_/abc123_ab/c1/23_/abc123_ab/c1/23_//";
+//		var str = "abc123.abc-123.a.b.c";
+//		console.log(reg.test(str));
+		
+		
+//(数字字母)1个或以上  (.(数字字母)1个或以上)任意个 @ (数字字母1个 (-(数字字母)1个)0个或1个)1个或以上 ((.)1个或2个 字母1个或以上)1个或以上
+//		var reg = /^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/;
+//		var str = "abc123abc.abc123abc123.abc123abc123.abc123abc123@a-123abca-123abca-123abca-123abc..abc..abc..abc..abc";
+//		var str = "a.2.c.4.f@a.a";
+//		console.log(reg.test(str))
+		
+		
+//<1个 字母1个或以上 ((除了<的任意字符)1个或以上)任意个  >1个  任意字符任意个 <1个 重复第一部分的字母1个或以上 >1个
+//<1个 字母1个或以上 ((除了<的任意字符)1个或以上)任意个  (空格)1个或以上  (/)1个 (>)1个
+//		var reg = /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+////		var str = "<span style='width:100px;height:100px' class='box'>标签内容</span>"
+//		var str = "<span style='width:100px;height:100px' class='box'   />"
+//		console.log(reg.test(str))
+		
+		var otxt1 = document.getElementById("txt1")
+		var otxt2 = document.getElementById("txt2")
+		var obtn = document.getElementById("btn")
+		
+		obtn.onclick = function(){
+			var str = otxt1.value
+			var reg = /<[^>]*>/g;
+//			正则贪婪特性：尽可能的多匹配
+			str = str.replace(reg,"")
+			otxt2.value = str;
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,52 @@
+您的好友赵坤 20:33:50
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			#box{}
+			#box1{width:30px;height:30px;float:left;border:1px solid #333;}
+			#box2{width:1000px;height:10px;border:1px solid #333;border-radius: 7px;float: left;margin-top: 5px;position: relative;z-index: 6;}
+			#box3{width:5px;height:20px;border:1px solid #333;border-radius: 7px;position: absolute;top:-5px;left:0;background: #09B8E3;}
+			span{float: left;margin:0 5px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="box1">
+				
+			</div>
+			<span>
+			0	
+			</span>
+			<div id="box2">
+				<div id="box3">
+					
+				</div>
+			</div>
+			10
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var obox = document.getElementById("box")
+	var obox1 = document.getElementById("box1")
+	var obox2 = document.getElementById("box2")
+	var obox3 = document.getElementById("box3")
+	obox3.onmousedown = function(){
+		
+		document.onmousemove = function(e){
+			var a = (e.clientX - "60")/100;
+			obox3.style.left = e.clientX -"60" + "px";
+			obox1.innerHTML = a.toFixed(1);
+			obox1.style.textAlign = "center";
+			obox1.style.lineHeight = 30 + "px";
+			
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+		}
+	}
+	
+</script>

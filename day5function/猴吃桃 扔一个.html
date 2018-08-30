@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>公园里有一堆桃子，猴子每天吃掉一半，挑出一个坏的扔掉，第6天的时候发现还剩1个桃子，问原来有多少个桃子？</p>
+	</body>
+</html>
+<script type="text/javascript">
+	function sum(n){
+		if(n==6){
+			s1= 1;
+		}else {
+			s1=(sum(n+1)+1)*2
+		}
+		return s1;
+	}
+	document.write(sum(0));
+</script>

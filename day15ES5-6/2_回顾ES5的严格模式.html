@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		(function(){
+//			"use strict";
+//			
+//			a = 10;
+//			
+//			function fn(a,b,b){}
+//			
+//			function fn(a){
+//				a = 20;
+//				console.log(a)
+//				console.log(arguments[0])
+//			}
+//			fn(10)
+//			
+//			function fn(a){
+//				arguments.callee()
+//			}
+//			fn(10)
+//			
+//			function fn(){
+//				console.log(this);		//undefined
+//			}
+////			全局函数中的this指向undefined
+//		})()
+		
+//		函数的方法
+//		bind()
+//		function fn(){
+//			console.log("hello")
+//		}
+//		fn.bind()
+		
+//		cookie,字符
+//		var obj = {
+//			name:"admin",
+//			age:19
+//		}
+//		document.cookie = "name="+obj;
+
+//		var str = "{name:'admin',age:'19'}";
+//		document.cookie = "abc="+str;
+//		对象和字符串的转换（序列化和反序列化）
+		var obj = {
+			a:10,
+			b:20,
+			c:30
+		}
+//		var obj = {
+//			"a":10,
+//			"b":20,
+//			"c":30
+//		}
+
+		console.log(obj)
+		var str = JSON.stringify(obj)
+		console.log(str)
+		console.log(typeof str)
+		document.cookie = "qwe="+str;
+		
+//		var str2 = '{"name":"admin","age":"18"}';
+//		var str3 = "{'name':'admin'}"
+//		
+//		var obj2 = JSON.parse(str3)
+//		console.log(obj2)
+//		
+		
+		
+	</script>
+</html>

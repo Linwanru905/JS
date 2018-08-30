@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//方法四：使用三目运算符多次判断
+    function Min(x,y,z) {
+      var min = x < y ? (x < z ? x : z) : (y < z ? y : z);		//取最小值
+      document.write(min);
+    }
+	function Zhong(x,y,z) {
+      var zhong = x >= y ? (x >= z ? (y >= z ? y : z) : x) : (x >= z ? x : (y >= z ? z : y));   //取中间值
+      document.write(zhong);
+    }
+    function Max(x,y,z) {
+      var max = x > y ? (x > z ? x : z) : (y > z ? y : z);		//取最大值
+      document.write(max);
+    }
+    Min(1,2,3);
+    Zhong(1,2,3);
+    Max(1,2,3);
+	// 此处 需要优化， 用一个函数代替三个函数 去赋值
+</script>

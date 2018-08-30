@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			#box {
+				width: 302px;
+				height: 32px;
+				margin: 40px auto;
+			}
+			
+			#txt {
+				width: 300px;
+				height: 30px;
+				font: 800 16px/30px '';
+				text-indent: 32px;
+				border: 1px solid #000;
+			}
+			
+			ul {
+				display: none;
+			}
+			
+			ul li {
+				width: 300px;
+				height: 30px;
+				border-bottom: 1px solid #fff;
+				background: deepskyblue;
+				margin: 2px 0;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="text" id="txt" />
+			<ul>
+				<li>link1</li>
+				<li>link2</li>
+				<li>link3</li>
+				<li>link4</li>
+				<li>link5</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oTxt = document.getElementById('txt');
+	var oUl = document.getElementById('box').lastElementChild;
+
+	//	console.log(aLi);
+	//otxt加一个点击事件
+	oTxt.onclick = function(eve) {
+		var e = eve || window.Event;
+		oUl.style.display = 'block';
+		stopbubble(e);
+	}
+	//遍历每一个li ， 并给li添加一个鼠标移上事件
+	var aLi = document.getElementsByTagName('li');
+	for(var i = 0; i < aLi.length; i++) {
+//		console.log(aLi[i]);
+		aLi[i].onmouseover = function() {	
+//      	console.log(this.innerHTML);   获取li里的值
+			oTxt.value = this.innerHTML;
+			this.style.backgroundColor = "cornflowerblue";
+		}
+		aLi[i].onclick = function() {
+			oTxt.value = this.innerHTML;
+			oUl.style.display = 'none';
+		}
+		aLi[i].onmouseout = function() {
+			//      	console.log(this.innerHTML);   获取li里的值
+			this.style.backgroundColor = 'deepskyblue'
+		}
+		//给input加键盘事件
+		oTxt.onkeydown = function(eve) {
+			var e = eve || window.Element;
+			if(e.keyCode == 48) {
+				oTxt.value = this.innerHTML;
+				this.style.backgroundColor = "cornflowerblue";
+			}
+		}
+
+	}
+
+	aLi[i].onblur = function() {
+		oUl.style.display = 'none';
+	}
+
+	function stopbubble(e) {
+		if(e.stopPropagation) {
+			e.stopPropagation();
+		} else {
+			e.cancelBubble = true;
+		}
+	}
+</script>

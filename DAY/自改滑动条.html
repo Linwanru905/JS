@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				margin: 20px auto;
+				width: 1000px;
+				clear: both;
+			}
+			
+			span {
+				float: left;
+				display: block;
+				width: 50px;
+				height: 50px;
+				border: 1px solid #000;
+				text-align: center;
+			}
+			
+			i {
+				width: 50px;
+				height: 50px;
+				display: block;
+				float: left;
+				margin: 0 10px;
+				text-align: center;
+			}
+			
+			div.box {
+				float: left;
+				width: 800px;
+				height: 40px;
+				border: 1px solid #000;
+				position: relative;
+			}
+			
+			p {
+				width: 20px;
+				height: 48px;
+				margin: -6px 0 0 -2px;
+				border-radius: 5px;
+				border: 1px solid darkturquoise;
+				background: darkturquoise;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<span></span>
+			<i>0</i>
+			<div class='box'>
+				<p></p>
+			</div>
+			<i>10</i>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var span = document.querySelector('span');
+	var div = document.querySelector('.box');
+	var p = document.querySelector('p');
+
+	p.onmousedown = function(eve) {
+		var e = eve || window.event;
+		var Wid = e.clientX;
+		div.onmousemove = function(eve) {
+			var e = eve || window.event;
+			var step = e.clientX - Wid;
+			var num = (step) / 80;
+
+			if(step < 0) {
+				step = 0;
+				num = 0;
+			} else if(step > p.offsetParent.offsetWidth - p.offsetWidth) {
+				step =10;
+				num = 10;
+			}
+			span.innerHTML = num.toFixed(1);
+			p.style.left = step + 'px';
+		}
+	}
+	
+	
+	
+	
+	document.onmouseup = function() {
+		div.onmousemove = null;
+	}
+
+	function stopBubble(e) {
+		if(e.stopPropagation) {
+			e.stopPropagation();
+		} else {
+			e.cancelBubble = true;
+		}
+	}
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>数字字母混合验证码</p>
+	</body>
+</html>
+<script type="text/javascript">
+	
+//	ASCII值判断你的值的范围
+//	数字:48 ~ 57
+//	小写:65 ~ 90
+//	大写:97 ~ 122
+   /* var str='';
+    for(var i =0; i<4; i++){
+    	var a=String.fromCharCode(rand(48,57));
+    	var b=String.fromCharCode(rand(65,90));
+    	var c=String.fromCharCode(rand(97,122));
+    	str += a+b+c;
+    }
+   document.write(str+'<br>');            //获取0 ~9 a~z A~Z
+   
+     
+    var yz='';
+    for(var j=0; j<4; j++){
+    	var n=rand(0,str.length-1)
+    	yz +=str[n];
+    }
+   document.write(yz);                   //获取随机的四位
+   
+   
+   
+
+    //获取一个随机的公式
+    function rand(x,y){
+    	return Math.floor(Math.random()*(y-x+1)) +x;
+    }*/
+   
+   var str='';
+   for(var i=0; i<4; i++){
+   	 var a=String.fromCharCode(rand(48,57));        //String.fromCharCode接受的就是unicode值
+     var b=String.fromCharCode(rand(65,90));
+     var c=String.fromCharCode(rand(97,122));
+     
+     str +=a+b+c;
+   }
+   document.write(str +'<br />');        //获取验证码中所有可能出现的数字字母
+   
+   var yz='';
+   for(var j=0; j<4; j++){
+   	var n=rand(0,str.length-1);         //rand（）是取随机数的方法 一个是最小值 一个是最大值
+   	yz +=str[n];
+   } 
+     document.write(yz);
+    
+     
+     
+ //调用一个随机的公式
+    function rand(x,y){
+    	return Math.floor(Math.random()*(y-x+1))+x;         //Math.random 取随机数
+    }
+     
+   
+   
+
+
+
+</script>

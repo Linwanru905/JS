@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				width: 1000px;
+				height: 600px;
+				background: none;
+				margin: 50px;
+				border: 1px solid #000;
+			}
+			
+			#count {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background: #00CED1;
+				margin: 0;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<p id="count"></p>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var ocount = document.getElementById('count');
+	var odiv = document.querySelector('div');
+
+	//运动三要素
+	var speed = 10;
+	var stop = odiv.offsetHeight - ocount.offsetTop;
+	var timer = null;
+	
+	//设置重力
+	var g = 1;
+
+	odiv.onmouseover = function() {
+		clearInterval(timer);
+		timer = setInterval(function() {
+			speed += g;
+			if(stop - ocount.offsetTop < speed) {
+				clearInterval(timer);
+				ocount.style.top = stop + "px";
+			} else {
+				ocount.style.top = ocount.offsetTop + speed + "px";
+			}
+			console.log(1);
+		}, 30)
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>link1</li>
+			<li>link2</li>
+			<li>link3</li>
+			<li>link4</li>
+			<p>这是一个段落</p>
+			<p>这是一个段落</p>
+			<p>这是一个段落</p>
+			<p>这是一个段落</p>
+		</ul>
+	</body>
+	<script type="text/javascript">
+//		函数的方法
+//		bind()
+		
+//		var obj = {
+//			name:"admin",
+//			fn:function(){
+//				setTimeout(function(){
+//					console.log(this.name)
+//				}.bind(this),1000)
+//			}
+//		}
+//		obj.fn()
+//		
+//		
+//		var 小A = {
+//			name:"AAAA",
+//			show:function(){
+//				console.log(this.name)
+//			}
+//		}
+//		小A.show()
+//		
+//		var 小B = {
+//			name:"BBBB"
+//		}
+//		小A.show.bind(小B)()
+		
+//		bind用来改变当前函数的this指向，
+//		改变函数的执行上下文
+//		改变函数中的this
+		
+//		函数的方法bind()
+		
+//		错误的写法
+//		function fn(){
+//			console.log(this)
+//		}.bind(obj)
+		
+//		正确的写法
+//		fn.bind()()
+		
+//		bind()作为函数的方法，当被函数调用的时候，会改变原函数中的this，改变成bind的第一个参数，执行完毕之后,会再次返回一个新函数，这个新函数是，改变this之后的原函数,需要再次手动执行，才能执行到新函数
+		
+//		function fn(){
+//			return function(){
+//				
+//			}
+//		}
+//		fn()()
+		
+//		function fn(){
+//			console.log(this)
+//		}
+//		fn.bind("hello")()
+		
+//		var ali = document.querySelectorAll("li")
+//		for(var i=0;i<ali.length;i++){
+//			ali[i].onclick = function(){
+//				console.log(this)
+//			}.bind(i)
+//		}
+		
+//		利用bind封装事件委托
+		
+//		var oul = document.querySelector("ul");
+//		
+//		var ali = document.querySelectorAll("li")
+//		var ap = document.querySelectorAll("p")
+//		
+//		oul.onclick = fn(ap,function(){
+//			console.log(this)
+//		});
+		
+//		第一层函数立即执行,用于传参
+//		function fn(achild,callback){
+////			当第一层函数执行结束后,得到第二层函数,正好是事件处理函数
+//			return function(eve){
+//				var e = eve || window.event
+//				var target = e.target || e.srcElement;
+////				遍历传进来的所有的元素，与点击的事件源元素相比较，如果一致，说明点到被委托的对应的子元素了
+//				for(var i=0;i<achild.length;i++){
+//					if(target === achild[i]){
+////						为了让用户体验更好，将外面的this手动改变成当前点击的元素，利用了bind
+//						callback.bind(target)();
+//					}
+//				}
+//			}
+//		}
+		
+		var 小A = {
+			name:"AAAA",
+			show:function(a,b,c,d){
+				console.log(a,b,c,d)
+				console.log(this)
+				console.log(arguments)
+			}.bind("这是改变之后的this指向","10",20)
+		}
+		小A.show("AAAhello","AAAworld")
+		
+//		bind()第一个参数往后,所有的参数,会加上原函数的参数一起,保存在arguments中
+		
+//		bind()作为函数的方法，接收一个或一个以上的参数
+//			一个参数时，会改变原函数中的this，改变成bind的第一个参数，执行完毕之后,会再次返回一个新函数，这个新函数是，改变this之后的原函数,需要再次手动执行，才能执行到新函数
+//			一个以上参数时，第二个参数往后,所有的参数,会加上原函数的参数一起,保存在arguments中
+		
+		
+//		必须手写事件委托的封装
+	</script>
+</html>

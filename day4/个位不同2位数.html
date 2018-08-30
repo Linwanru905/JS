@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function differ(){
+			var str='';
+			for(var i=0; i<4; i++){
+				for(var j=0; j<4; j++){
+					if(i !== j){
+					   str='' +i +j;
+					   if(str%2 != 0){
+					   document.write(str+ '<br>');
+			         }		
+			    }
+			}
+	    }	   
+	}
+	document.write(differ());
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box"></div>
+
+	</body>
+
+</html>
+<script type="text/javascript">
+	//	var box = document.getElementById("box");
+	//	var n = 1243660000;   //毫秒
+	//	function dao(){
+	//	先把它转成时,分,秒
+	//		var miao = n/1000;   //整个秒数
+	//		var sec = miao % 60;  //获取秒数
+	//		var minute = parseInt(miao / 60 ) % 60;   //转成分
+	//		var hour = parseInt(miao / 3600) % 24;	//转成时
+	//		box.innerHTML = hour+' '+minute +' '+sec;
+	//		n--;
+	//	}
+	//	dao();
+	//	setInterval(dao,1000)
+
+
+//	var box = document.getElementById('box');
+//	var n = 112345678900000;
+//
+//	function dao() {
+//		//	document.write(miao);
+//		//转换成 分 秒  小时
+//		var miao = n / 1000; //整个秒数
+//		var sce = miao % 60; //获取秒数
+//		var fen = parseInt(miao / 60) % 60; //获取分钟
+//		var hour = parseInt(miao / 3600) % 24; //获取小时
+//		box.innerHTML = hour + ' ' + fen + ' ' + sce;
+//		n--;
+//
+//	}
+//	dao();
+//	setInterval(dao,1000);
+//	
+
+
+
+    var box=document.getElementById('box');
+    var n=1230000;
+    function dao(){
+    	var miao=n/1000;
+    	var sec=miao % 60;
+    	var minute=parseInt(miao/60)% 60;
+        var hour=parseInt(miao/3600)%24;
+        box.innerHTML=hour + ' ' + minute + ' ' + sec;
+        n--;
+    }
+	dao();
+	setInterval(dao,1000);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>

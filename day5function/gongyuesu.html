@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+
+</html>
+<script>
+	function gong(a, b) {
+		if(a > b) {
+			var tamp = a;
+			a = b;
+			b = a;
+		}
+		if(a == b) {
+			return;
+		}
+		for(var i = b; i > 0; i--) {
+			if(a % i == 0 && b % i == 0) {
+				document.write(i);
+				break;
+			}
+		}
+
+	}
+	gong(8,12);
+</script>

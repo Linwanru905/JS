@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p>公园里有200个桃子。猴子每天吃掉10个，挑出两个坏的扔掉，问6天后剩余桃子的数量（使用递归方法）</p>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//当天的数量 = 头一天数量 - 12；
+	function peach(n) {
+		var sum=200;
+		if(n == 6) {    //退出条件
+			return sum;
+		}else{
+			sum=peach(n+1) - 12;
+		}
+		return sum;
+	}
+	document.write(peach(0));
+</script>

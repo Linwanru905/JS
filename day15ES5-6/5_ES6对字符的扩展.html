@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+//		var obj = {
+//			name:"adin",
+//			age:18
+//		}
+//		var arr = ["a","b","c","d"]
+//		var str = "hello world";
+		
+//		主要遍历ES6中新增数据结构set和map
+
+//		for(var i of str){
+//			console.log(i)
+//		}
+		
+		var name = "这是一个商品";
+		var price = "￥1999.00";
+		var src = "1.png";
+		
+//		var str = "<div class='box'>"+
+//						'<img src=""/>'+
+//						"<p>"+ name +"</p>"+
+//						"<span>"+ price +"</span>"+
+//					"</div>"
+//		document.body.innerHTML = str;
+					
+		var str = `<div class="box">
+						<img src="${src}"/>
+						<p>${name + "这是后来新增的文字"}</p>
+						<span>${price}</span>
+						<em>${fn()}</em>
+						<em>${1+2+3+4+5}</em>
+					</div>`;
+		
+		function fn(){
+			return "ahahahah"
+		}
+		
+					
+		document.body.innerHTML = str;
+	</script>
+</html>

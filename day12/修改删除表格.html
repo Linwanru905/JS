@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			th {
+				width: 100px;
+				height: 30px;
+			}
+			
+			td {
+				width: 100px;
+				height: 30px;
+				text-align: center;
+			}
+			span{
+				display:inline-block;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table border="1px solid #000" cellspacing="0" cellpadding="0" style="margin:0 auto;">
+			<tr>
+				<th>学号</th>
+				<th>语文</th>
+				<th>数学</th>
+				<th>英语</th>
+				<th>属性</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>88</td>
+				<td>92</td>
+				<td>100</td>
+				<td><span>删除</span></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>78</td>
+				<td>52</td>
+				<td>90</td>
+				<td><span>删除</span></td>
+			</tr>
+
+			<tr>
+				<td>3</td>
+				<td>98</td>
+				<td>30</td>
+				<td>50</td>
+				<td><span>删除</span></td>
+			</tr>
+
+			<tr>
+				<td>4</td>
+				<td>98</td>
+				<td>90</td>
+				<td>100</td>
+				<td><span>删除</span></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>88</td>
+				<td>89</td>
+				<td>90</td>
+				<td><span>删除</span></td>
+			</tr>
+
+		</table>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//获取所有的td
+	var atd = document.querySelectorAll('td');
+	var ospan=document.querySelectorAll('span');
+//	console.log(ospan);
+	//遍历每一个td，让他们可以获取焦点
+	for(var i = 0; i < atd.length; i++) {
+		//console.log(atd[i]);   td获取成功
+		atd[i].onclick = function() {
+			//创建一个input框
+			var ipt = document.createElement('input');
+			ipt.value = this.innerHTML;
+			this.innerHTML = '';
+			this.appendChild(ipt);
+			//ipt获取焦点
+			ipt.focus();
+			//防止冒泡
+			ipt.onclick = function(eve) {
+				var e = eve || window.element;
+				stopBubble(e);
+			}
+			//失去焦点
+			ipt.onblur = function() {
+				this.parentNode.innerHTML = this.value;
+			}
+
+		}
+
+	}
+	//遍历span
+	for(var i=0;i < ospan.length; i++){
+		ospan[i].onclick = function(eve){
+			var e = eve || window.element;
+			stopBubble(e);
+			this.parentNode.parentNode.remove();
+		}
+		
+		
+		
+	}
+
+	function stopBubble(e) {
+		if(e.stopPropagation) {
+			e.stopPropagation();
+		} else {
+			e.cancelBubble = true;
+		}
+	}
+</script>

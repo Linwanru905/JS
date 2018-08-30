@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var box = document.getElementById("box");
+//	定时器，隔规定的时间，执行相同的动作
+	//钟月美 打 施卡 每5秒 ，打一次
+//	时间是以毫秒做为单位的
+//	第一种写法:
+	/*setInterval(function(){
+		changedate();
+	},1000);*/
+	
+//	第二种写法:
+//	setInterval(changedate,1000);
+
+//	第三种写法:
+	setInterval("changedate()",1000);
+	
+	function changedate(){
+		//		你要做的事情
+		var timer = new Date();
+		var year = timer.getFullYear();
+		var month = timer.getMonth();
+		var dater = timer.getDate();
+		var hour = timer.getHours();
+		var minute = timer.getMinutes();
+		var second = timer.getSeconds();
+		box.innerHTML = year + '-' + month + '-' + dater + ' PM' + hour + ":" + minute + ":" + second;
+	}
+//	为了防止那开始的一秒空白,我们先调用一次函数
+	changedate();
+</script>

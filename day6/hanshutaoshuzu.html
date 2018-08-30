@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+    function fn(a){
+        return ['aaa','bbb',function(b){
+            function fn2(c){
+                 document.write(a+b+c); 
+            }
+           return fn2;
+        }];
+      
+    }
+     
+     fn(2)[2](5)(6);
+</script>

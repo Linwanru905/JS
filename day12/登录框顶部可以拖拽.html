@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#btn {
+				color: #fff;
+				border: 0;
+				width: 80px;
+				height: 30px;
+				background: #ccc;
+				border-radius: 2px;
+				margin: 5px;
+			}
+			
+			body {
+				background: #000;
+			}
+			
+			.box {
+				width: 400px;
+				height: 200px;
+				border: 4px solid #ccc;
+				display: none;
+				position: absolute;
+			}
+			
+			.top {
+				color: #fff;
+				text-align: center;
+				width: 400px;
+				height: 49px;
+				font: 18px/49px '';
+				border-bottom: 4px solid #ccc;
+			}
+			
+			.bottom {
+				padding: 5px 20px;
+				color: #f2ff00;
+				font: 16px/40px '';
+			}
+			
+			.bottom p span {
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" id="btn" value="点击" />
+		<div class="box">
+			<div class="top">TOP</div>
+			<div class="bottom">
+				<p><span>Drag: </span> false</p>
+				<p><span>Offset: </span> false</p>
+				<p><span>OffsetTop: </span> false</p>
+			</div>
+			</di v>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var obtn = document.getElementById('btn');
+	var obox = document.querySelector('.box');
+	var otop = document.querySelector('.top')
+	var clientW = document.documentElement.clientWidth;
+	var clientH = document.documentElement.clientHeight;
+
+	obtn.onclick = function() {
+		obox.style.display = 'block';
+		//otop添加鼠标移入事件
+		otop.onmouseover = function(eve) {
+			var e = eve || window.element;
+			stopBubble(e);
+			this.style.left=e.clientX + 'px';
+			this.style.top=e.clientY + 'px';
+			this.style.cursor = 'move';
+			//鼠标移入的同时触发了box/document的移动事件
+           
+			otop.onmousedown = function(eve) {
+				var e = eve || window.element;
+//				stopBubble(e);
+                //鼠标按下时的位置
+				var disx = e.offsetX;
+				var disy = e.offsetY;
+				
+				document.onmousemove = function(eve) {
+					var e = eve || window.element;
+//					stopBubble(e);
+					var l = e.clientX - disx;
+					var t = e.clientY - disy;
+					//设置边框
+					if(l < 0) l = 0;
+					if(t < 0) t = 0;
+					if(l > clientW - otop.offsetWidth)
+						l = clientW - otop.offsetWidth;
+					if(t > clientH - otop.offsetHeight)
+						t = clientH - otop.offsetHeight;
+				
+					obox.style.left = l + 'px';
+					obox.style.top = t + 'px';
+				}
+
+			}
+
+			document.onmouseup = function() {
+				document.onmousemove = document.onmouseup = null;
+			}
+		}
+
+	}
+
+	function stopBubble(e) {
+		if(e.stopPropagation) {
+			e.stopPropagation();
+		} else {
+			e.cancelBubble = true;
+		}
+	}
+</script>

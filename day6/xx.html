@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		对arr数组进行所有的值×1.35后，小数位保留1位。
+	</body>
+</html>
+<script type="text/javascript">
+	//对数组的循环遍历,可以对里面的值进行操作.
+	var arr = [3,5,7,9];
+	var arr2 = arr.map(function(val,index){
+		return (val*1.35).toFixed(1);
+	});
+	console.log(arr2);
+</script>

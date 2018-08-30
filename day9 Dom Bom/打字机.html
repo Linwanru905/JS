@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<div id='box' style="float: left;"></div>
+		<span id='xs' style="float: left;margin-left:5px;">|</span>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//	1、 打字机效果。。
+	//	     比如：“ 内蒙欢迎您旅游， 大自然的芬芳！” 一个字一个字按顺序往外蹦， ^ (●'◡'●) ^
+	//思路
+	//  1·获取相关节点
+	//  2·
+
+	var oBox = document.getElementById('box');
+	var oXs = document.getElementById('xs');
+	var str = ['内','蒙','欢','迎', '您', '旅', '游',',','大','自','然','的','芬','芳','！'];
+	//设置开关
+	var timer = null;
+	//设置一个下标
+	var n = 0;
+	//开启定时器
+	timer = setInterval(types, 500);
+
+	function types() {
+		oBox.innerHTML += str[n] + ' ';
+		n++;
+		//判断是否到头
+		if(n > str.length - 1) {
+			clearInterval(timer);
+			//字符打完后，书杠开始闪
+			setInterval(san, 500);
+
+		}
+
+	}
+	function san(){
+		if(oXs.style.display == 'block'){
+			oXs.style.display ='none';
+		}else{
+			oXs.style.display='block';
+		}
+	}
+	
+	
+	
+	
+	
+	
+
+	//   var str=new String("内蒙欢迎您旅游， 大自然的芬芳！");
+	//   
+	//   //定义计时器
+	//   var timer=null;
+	//   // 开启定时器
+	//   timer= setInterval(san,1000);
+	//   
+	//   var n=0;  //设置初始下标
+	//   function san(){
+	//   	$('box').innerHTML +=str.substring(n,n+1);
+	//   	n++;
+	//   	console.log(n);
+	//   	//判断字符结束时，关闭定时器
+	//   	if(n>=str.length){
+	//   		clearInterval(timer);
+	//   	}
+	//   	
+	//   	
+	//   }
+	//   
+	//   //定义一个函数；来获取节点
+	//   function $(obj){
+	//   	return document.getElementById(obj);
+	//   }
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
+<script type="text/javascript">
+//	var box = document.getElementById("box");
+//	var endDate = new Date('2018-10-01 00:00:00');
+//
+//	setInterval(dong,1000);
+//	function dong() {
+//		var nowDate = new Date();
+//		var num = endDate - nowDate; //中间的差额，毫秒数
+//		//	将毫秒数转化成秒数
+//		var ms = num / 1000;
+//		//	获取到秒数
+//		var second = parseInt(ms % 60);
+//		//	获取分钟
+//		var minute = parseInt(ms / 60) % 60;
+//		//	获取小时
+//		var hour = parseInt(ms / 3600) % 24;
+//		//	获取天数
+//		var day = parseInt(ms / 3600 / 24);
+//
+//		box.innerHTML = '距离国庆还有：' + day + '天' + hour + '时' + minute + '分' + second + '秒';
+//	}
+//	dong();  //防止一秒的空白
+
+    var box=document.getElementById('box');
+    var endData=new Date('2018-10-01 00:00:00');
+    
+    setInterval(dao,1000);
+    
+    function dao(){
+    	var nowData=new Date();
+    	var num=endData - nowData;      //算不出中间的时间差
+    	//获取总毫秒数
+    	var ms=num/1000;
+    	//转换时间 小时 分钟 秒
+    	var second=parseInt(ms % 60);
+    	var minute=parseInt(ms / 60) % 60;
+    	var hour=parseInt(ms / 3600) % 24; 
+    	var days=parseInt(ms / 3600 / 24);
+    	box.innerHTML ='距离国庆还有' + days + ' 天' + hour +'时' + minute +'分'  + second +'秒'; 
+    	
+    }
+    dao();
+
+
+
+
+
+</script>

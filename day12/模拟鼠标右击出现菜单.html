@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding: 0;}
+			ul{
+				width: 200px;
+				height: 400px;
+				border:1px solid #000;
+				text-align: center;
+				display: none;
+				position:relative;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>Link1</li>
+			<li>Link2</li>
+			<li>Link3</li>
+			<li>Link4</li>
+			<li>Link5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	var oUl= document.querySelector('ul');
+//	console.info(oUl);
+    document.oncontextmenu = function(eve){
+    	var e = eve || window.event;	
+    	stopDefualt(e);
+    	oUl.style.left = e.clientX + 'px';
+    	oUl.style.top = e.clientY + 'px';
+    	oUl.style.display='block';
+//  	stopBubble(e);
+        //解决默认
+//  	return false;	
+    }
+    document.onclick = function(){
+    	oUl.style.display='none';
+    }
+ 
+    function stopBubble(e){
+    	if(e.stopPropagation){
+    		e.stopPropagation();
+    	}else{
+    		e.cancelBubble = true;
+    	}
+    }
+    
+    function stopDefualt(e){
+    	if(e.preventDefault){
+    		e.preventDefault();
+    	}else{
+    		e.returnValue = false;
+    	}
+    }
+</script>

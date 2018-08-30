@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var arr=new Array(30);     //定义一个数组长度为30
+	var newarr=[];             //定义一个新数组为空
+	var average=0; 
+	
+	for(var i=1; i<=arr.length; i++){
+		arr[i-1]=2*i;
+		
+		if(i % 5 !=0){
+			average += arr[i-1];
+		}else{
+			newarr.push(average / 5);
+			average = 0;
+		}
+	}
+	document.write(arr + '<br>');
+	document.write(newarr);
+</script>

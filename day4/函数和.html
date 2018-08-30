@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function sum(){
+//设置一个开关
+    var $status = false;
+//遍历参数数组,看看是否有字符串
+    for(var j=0; j<arguments.length; j++){
+        if(isNaN(arguments[j])){
+            $status = true;
+            break;
+        }
+    }
+        var he = 0;
+     // 判断一下有没有传参
+       if(arguments.length == 0){
+              return he;
+        }else if($status){
+                return "你输入的不是纯数字！"
+            }else{
+//有参数情况下,遍历数组
+          for(var i=0; i< arguments.length; i++){
+                he += Number(arguments[i]);
+            }
+                  }
+                return he;
+                  }
+console.log(sum(5,9,12));
+</script>

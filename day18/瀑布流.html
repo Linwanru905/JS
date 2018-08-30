@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#cont {
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#box {
+				float: left;
+				padding: 4px;
+			}
+			
+			#imagebox {
+				border: 1px solid #000;
+				border-radius: 4px;
+				padding: 2px;
+				width: 200px;
+			}
+			
+			#imagebox img {
+				width: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="cont">
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/6.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/1.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/2.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/3.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/4.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/5.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/0.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/7.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/8.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/9.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/6.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/1.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/2.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/3.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/4.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/5.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/0.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/7.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/8.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/9.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/6.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/1.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/2.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/3.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/4.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/5.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/0.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/7.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/8.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/9.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/4.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/5.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/0.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/7.jpg" />
+				</div>
+			</div>
+			<div id="box">
+				<div id="imagebox">
+					<img src="img/8.jpg" />
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	onload = function() {
+		var ocont = document.getElementById('cont');
+		var obox = ocont.children;
+		//获取大框宽度
+		var client = document.documentElement.clientWidth
+		//用大框的宽度/一个的宽度 = 子元素的个数
+		var Maxnum = parseInt(client / obox[0].offsetWidth);
+		ocont.style.width = Maxnum * obox[0].offsetWidth + "px";
+		//定义一个数组用来获取第一排的元素高度
+		var HeightArr = [];
+		//遍历第一排的的个数 获取高度
+		for(var i = 0; i < Maxnum; i++){
+			HeightArr.push(obox[i].offsetHeight);
+		}
+		//遍历后面的子元素
+		for(var i = Maxnum; i < obox.length; i++){
+			//获取heightArr 中最小是数
+			var min = bigSmall(HeightArr);
+			var minIndex = HeightArr.indexOf(min);
+			
+			obox[i].style.position= "absolute";
+			obox[i].style.top = min + "px";
+			obox[i].style.left = minIndex *obox[0].offsetWidth + "px";
+			HeightArr[minIndex] = HeightArr[minIndex] + obox[i].offsetHeight;
+		}
+		
+		
+		
+		
+	}
+	//排序
+	function bigSmall(arr){
+		var newArr = [];
+		arr.forEach(function(value){
+			newArr.push(value);
+		})
+		var a = newArr.sort((a,b) => a-b);
+		return a[0];
+	}
+</script>

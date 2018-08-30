@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body>div {
+				width: 900px;
+				height: 100px;
+				border: 1px solid #000;
+				margin: 10px 20px;
+				position: relative;
+			}
+			
+			div>div {
+				width: 100px;
+				height: 100px;
+				background: #09B8E3;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box1">
+			<div id="xbox1"></div>
+		</div>
+		<div id="box2">
+			<div id="xbox2"></div>
+		</div>
+		<div id="box3">
+			<div id="xbox3"></div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var obox1 = document.getElementById('box1');
+	var xbox1 = document.getElementById('xbox1');
+	var obox2 = document.getElementById('box2');
+	var xbox2 = document.getElementById('xbox2');
+	var obox3 = document.getElementById('box3');
+	var xbox3 = document.getElementById('xbox3');
+	
+	obox1.onmouseover = function(){
+		move(xbox1,"width",600)
+	}
+	obox1.onmouseout = function(){
+		move(xbox1,"width",0)
+	}
+	obox2.onmouseover = function(){
+		move(xbox2,"left",600)
+	}
+	obox2.onmouseout = function(){
+		move(xbox2,"left",0)
+	}
+	obox3.onmouseover = function(){
+		move(xbox3,"opacity",60)
+	}
+	obox3.onmouseout = function(){
+		move(xbox3,"opacity",100)
+	}
+	
+	
+	
+	function move(ele,attr,target){
+	    clearInterval(ele.timer);
+	    ele.timer = setInterval(function(){
+	    	var iNow = attr == "opacity" ? getStyle(ele,attr) *100 : parseInt(getStyle(ele,attr));
+	    	
+	    	var speed = (target - iNow) / 6;
+	    	speed = speed < 0? Math.floor(speed) : Math.ceil(speed);
+	    	
+	    	if(target == iNow){
+	    		clearInterval(ele.timer);
+	    	}else{
+	    		if(attr == "opacity"){
+	    			ele.style.opacity = (iNow + speed )/100; 
+	    			ele.style.filter = "alpha(opacity = " +(iNow + speed)+")";
+	    		}else{
+	    			ele.style[attr] = iNow + speed + 'px';
+	    		}
+	    	}
+	    },30)
+	}
+	
+	function getStyle(ele,attr){
+		if(ele.currentStyle){
+			return ele.currentStyle[attr];
+		}else{
+			return getComputedStyle(ele,false)[attr];
+		}
+	}
+	
+	
+</script>

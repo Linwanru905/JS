@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				margin: 5px;
+			}
+			
+			input {
+				background: #fff;
+				border: 1px solid #000;
+				width: 400px;
+				height: 38px;
+				font: 16px/38px '';
+				text-indent: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			用&nbsp; 户&nbsp; 名：<input type="text" id="txt" />
+		</div>
+		<div>
+			输入密码：<input type="password" id="pwd" />
+		</div>
+		<div>
+			重复密码：<input type="password" id="pwdt" />
+		</div>
+
+		<div>
+			电话号码：<input type="tel" id="tel" />
+		</div>
+		<div>
+			电子邮箱：<input type="email" id="mail" />
+		</div>
+		<div>
+			<input type="button" id="btn" value="提交" />
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var otxt = document.querySelector('#txt');
+	var opwd = document.querySelector('#pwd');
+	var opwdt = document.querySelector('#pwdt');
+	var otel = document.querySelector('#tel');
+	var omail = document.querySelector('#mail')
+	//	console.log(txt);
+	//设置一个开关
+	var txt=pwd=pwdt=tel=mail= true;
+	otxt.onblur = function() {
+		var reg = /^[\u2E80-\u9FFF\da-z_-]{4,20}$/;
+		if(!reg.test(this.value)){
+			alert('输入错误！');
+			txt=false;
+		}else{
+			txt = true;
+		}
+	}
+
+	opwd.onblur = function() {
+		if(this.value.length > 6 && this.value.length < 20) {
+			var a = b = c = 0;
+			var reg1 = /\d+/g;
+			if(reg1.test(this.value)) {
+				a = 1;
+			}
+			var reg2 = /[a-z]+/g;
+			if(reg2.test(this.value)) {
+				b = 1;
+			}
+			var reg3 = /[^\da-z]+/g;
+			if(reg3.test(this.value)) {
+				c = 1;
+			}
+			switch(a + b + c) {
+				case 1:
+					alert('简单');
+					break;
+				case 2:
+					alert('中等');
+					break;
+				case 3:
+					alert('难');
+					break;
+
+			}
+			pwd = true;
+		} else {
+			alert('长度不够');
+			pwd =false;
+		}
+		//		if(opwdt.value !=''|| opwdt.value != opwd.value){
+		//			alert('两次密码不一致');
+		//		}
+
+	}
+
+	opwdt.onblur = function() {
+		if(opwdt.value != opwd.value) {
+			alert('两次密码不一致');
+			pwdt= false;
+		}else{
+			pwdt = true;
+		}
+	}
+
+	otel.onblur = function() {
+		var reg = /^[1]\d{10}$/;
+		if(!reg.test(this.value)) {
+			alert('输入错误！')
+			tel = false;
+		}else{
+			tel = true;
+		}
+	}
+
+	omail.onblur = function() {
+		//		  数字大小写字母_- 3到12位   @  数字字母 2到9位  . 字母2到5位
+		var reg = /^([\da-zA-Z\-\_]{3,12})@([\da-z]{2,9})\.([a-z]{2,5})$/;
+		//       console.log(reg.test(this.value))
+		if(!reg.test(this.value)) {
+			alert('输入错误！')
+			mail= false;
+		}else{
+			mail =true;
+		}
+	}
+	btn.onclick = function(){
+		if(txt && pwd && pwdt && tel && mail){
+			alert('提交成功！');
+		}else{
+			alert('提交失败！');
+		}
+		
+	}
+</script>

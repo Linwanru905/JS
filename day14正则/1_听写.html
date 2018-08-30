@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+//		1.如何开启严格模式
+//			;(function(){
+//				"use strict"
+//				
+//			})();
+//		
+//		2.如何将字符转成ASCII码,并再次转回来
+//			var str = "中";
+//			var num = str.charCodeAt()
+//			var str2 = String.fromCharCode(num)
+//		
+//		3.对象的本质和意义
+//			键值对
+//			编程和存储数据
+//			
+//		4.如何获得范围随机数
+//			function random(a,b){
+//				return Math.round(Math.random()*(b-a)+a);
+//			}
+//			random(10,20)
+//			
+//		5.手写数组去重
+//			var arr = ["hello","a","world","hello","a","b","b","c","c","c","ccc"];
+//			var obj = {};
+//			for(var i=0;i<arr.length;i++){
+////				obj[]
+////				arr[0]
+////				"hello"
+////				obj.hello
+//				if(obj[arr[i]]){
+//					obj[arr[i]]++;
+//				}else{
+//					obj[arr[i]] = 1;
+//				}
+//			}
+//			console.log(obj)
+//			var newArr = []
+//			for(var i in obj){
+//				newArr.push(i)
+//			}
+//			console.log(newArr)
+//		6.如何阻止默认事件(兼容)
+//			function fn(e){
+//				if(e.preventDefault){
+//					e.preventDefault()
+//				}else{
+//					e.returnValue = false;
+//				}
+//			}
+//
+//		7.事件委托的概念
+//			将多个相同子元素的相同时间绑定给共同的父元素,利用了事件冒泡的原理,和事件对象身上存储的事件源,找到点击的子元素,实现给子元素绑定事件的过程
+//			
+//		8.如何实现对象的深拷贝
+//			var obj = {name:"admin"}
+//			var obj2 = obj;
+//			obj2.name = "root";
+
+//			var obj = {name:"admin"}
+//			var obj2 = {}
+//			for(var i in obj){
+//				obj2[i] = obj[i]
+//			}
+//			obj2.name = "root";
+			
+//		9.姓名
+		
+//		事件对象
+//		obox.onclick = function(eve){
+//			var e = eve || window.event;
+////			事件对象身上的属性
+//			console.log(e.offsetX)
+//			console.log(e.clientX)
+//			console.log(e.pageX)
+//			console.log(e.screenX)
+////			console.log(e.button)
+//			console.log(e.target)
+//			console.log(e.srcElement)
+//		}
+//		事件冒泡
+//		obox.onclick = function(eve){
+//			var e = eve || window.event;
+//			e.stopPropagation()
+//			e.cancelBubble = true;
+//		}
+//		默认事件
+//		obox.onclick = function(eve){
+//			var e = eve || window.event;
+//			e.preventDefault();
+//			e.returnValue = false;
+////			return false;
+//		}
+//		绑定事件方式
+//		赋值式(DOM0级事件绑定)
+//		元素.onclick = fn
+//		function fn(){
+//			console.log(1)
+//		}
+//		事件监听绑定事件(DOM2级事件绑定)
+//		obox.addEventListener("click",fn,false)
+//		function fn(){
+//			console.log(1)
+//		}
+//		obox.removeEventListener("click",fn,false)
+//		obox.attachEvent("onclick",fn)
+//		function fn(){
+//			console.log(1)
+//		}
+//		obox.detachEvent("onclick",fn)
+		
+//		ul>li*5
+//		事件委托
+//		oul.onclick = function(eve){
+//			var e = eve || window.event;
+//			var target = e.target || e.srcElement;
+//			if(target.nodeName === "LI"){
+//				console.log(target)
+//			}
+//		}
+//		键盘事件
+//		document.onkeydown = function(eve){
+//			var e = eve || window.event
+//			console.log(e.keyCode)
+//			console.log(e.ctrlKey)
+//			console.log(e.shiftKey)
+//			console.log(e.altKey)
+//		}
+		
+		
+	</script>
+</html>

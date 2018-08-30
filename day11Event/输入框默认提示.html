@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#txt{border:1px solid #000;width:300px;height:30px;}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="txt" value="请输入..." />
+	</body>
+</html>
+<script type="text/javascript">
+//	.输入框默认提示
+     //获取节点
+     var oTxt=document.getElementById('txt');
+//   添加
+     oTxt.onclick=function(eve){
+     	var e= eve || window.event;
+        this.value='';
+        stopbubble(e);
+       
+       
+     }
+     document.onclick=function(){
+     	if(!oTxt.value){
+     	    oTxt.value='请输入...';
+     	}
+     	        
+     }
+//   
+     function stopbubble(e){
+     	if(e.stopPropagation){
+     		e.stopPropagation();
+     	}else{
+     		e.cancelBubble = true;
+     	}
+     }
+
+
+
+
+</script>

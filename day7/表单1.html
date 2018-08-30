@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<textarea name="" rows="10" cols="60" id='dan'>hahhahaha</textarea>
+		<button type="button" onclick="tijiao()">提交</button>
+		<div id="shou" style="width: 600px;height: 400px;border: 1px solid #000;"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var app=document.getElementById('shou');
+	function tijiao() {
+		var txt = dan.value;
+	    while(txt.indexOf('台独') >=0){                 //遍历输入的字符串中是否有‘台独’， 有的话就替换
+	    	txt =txt.replace('台独','***');
+	    }
+	    app.innerHTML=txt;
+	}
+</script>

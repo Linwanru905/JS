@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			/**{margin:0;padding:0;}*/
+			
+			.con {
+				border-radius: 50%;
+				position: absolute;
+			}
+			
+			#box {
+				width: 100px;
+				height: 20px;
+				border: 1px solid #000;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			
+			input {
+				z-index: 10;
+				position: absolute;
+			}
+			#btn1{left: 0;}
+			#btn2{left:40px;}
+			#btn3{left:80px;}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<input type="button" id="btn1" value="+" />
+		<input type="button" id="btn2" value="-" />
+		<input type="color" id="btn3" />
+		<div id="box"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//获取box节点
+	var oDiv = document.querySelector('#box');
+	var obtn1 = document.getElementById('btn1');
+	var obtn2 = document.getElementById('btn2');
+	var obtn3 = document.getElementById('btn3');
+
+	var h = w = 10;
+	var color = '#f00';
+
+	document.onmousemove = function(eve) {
+		//获取事件对象，注意兼容
+		var e = eve || window.event;
+		//		console.log(e);
+
+		oDiv.innerHTML = e.clientX + ',' + e.clientY; //获取鼠标移动时的坐标
+		//创建一个div
+
+		var oDivv = document.createElement('div');
+		oDivv.className = 'con';
+
+		//获取div的宽高和背景颜色
+		oDivv.style.width = w + 'px';
+		oDivv.style.height = h + 'px';
+		oDivv.style.background = color;
+		//点击按钮，改变whc
+		btn1.onclick = function() {
+			w += 5;
+			h += 5;
+		}
+		btn2.onclick = function() {
+			if(w <= 5) {
+				w = 5;
+				h = 5;
+			} else {
+				w -= 5;
+				h -= 5;
+			}
+		}
+		btn3.onchange = function() {
+			color = this.value;
+		}
+		//获取鼠标移动时的坐标
+		oDivv.style.left = e.clientX + 'px';
+		oDivv.style.top = e.clientY + 'px';
+
+		//将div加入到document中
+		document.body.appendChild(oDivv);
+
+	}
+</script>

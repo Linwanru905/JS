@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//	var timer=new Date();
+	//	console.info(timer);       //获取当前的时间
+
+	//获取时间
+	////  var timer=new Date('8\18\2018'); 
+	//  var timer=new Date();
+	//  //date可放毫秒数，也可以放字符串
+	//  var years=timer.getFullYear();
+	//  var month=timer.getMonth();
+	//  var days=timer.getDate();
+	//  var hour=timer.getHours();
+	//  var minuts=timer.getMinutes();
+	//  var second=timer.getSeconds();
+	//  var miao=timer.getMilliseconds();  //毫秒数
+	//  alert(miao);
+
+	//设置时间  年月日时分秒
+	//  var timer= new Date();
+	//  timer.setFullYear(2011);
+	//  timer.setMonth(7);
+	//  timer.setDate(12);
+	//  timer.setHours(12);
+	//  timer.setMinutes(20);
+	//  timer.setSeconds(12);
+	//  timer.setMilliseconds(200);
+	//  alert(timer.toLocaleString());
+
+	//获取当前时间
+	var timer = new Date();
+	var years = timer.getFullYear();
+	var month = timer.getMonth();
+	var days = timer.getDate();
+	var hour = timer.getHours();
+	var minuts = timer.getMinutes();
+	var second = timer.getSeconds();
+	document.write(years + '年' + month + '月' + days + '日' +'AM' + hour + ':' + minuts + ':' + second);
+</script>

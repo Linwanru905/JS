@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+<script type="text/javascript">
+	function count(n){
+		if(n == 1){
+			return 1;      //循环结束条件
+		}
+		
+		return n*count(n-1);
+	
+	}
+	document.write(count(100));
+</script>

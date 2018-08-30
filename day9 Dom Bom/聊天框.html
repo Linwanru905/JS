@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <style type="text/css">
+	    	* {
+	    		margin: 0;
+	    		padding: 0;
+	    	}
+	    	
+	    	#box {
+	    		width: 400px;
+	    		height: 500px;
+	    		border: 1px solid #000;
+	    		margin: 50px auto;
+	    	    border-radius: 5px 5px 0 0;
+	    	}
+	    	
+	    	#xianshi {
+	    		height: 450px;
+	    		overflow:auto;
+	    	}
+	    	#xianshi div{
+	    		max-width:200px;
+	    		padding: 4px;
+	    		margin: 4px;
+	    		border-radius:5px;
+	    		clear: both;
+	    	}
+	    	#xianshi div:nth-child(2n-1) {
+	    		float: left;
+	    		background: #f90;
+	    	}
+	    	
+	    	#xianshi div:nth-child(2n) {
+	    		float:right;
+	    		background: #f09;
+	    	}
+	    	
+	    	#b-b {
+	    		height: 50px;
+	    		border-top: 1px solid #000;
+	    		width: 400px;
+	    		position: relative;
+	    	}
+	    	
+	    	#xs {
+	    		width: 350px;
+	    		height: 48px;
+	    		resize: none;
+	    		font: 14px/20px '';
+	    	}
+	    	
+	    	#btn {
+	    		height: 50px;
+	    		width: 49px;
+	    		position: absolute;
+	    		right: 0;
+	    		top: 0;
+	    	}
+	    </style>
+	</head>
+	<body>
+	    <div id="box">
+	    	<div id="xianshi"></div>
+	        <div id="b-b">
+	        	<textarea id="xs" /></textarea>
+	        	<input type="button" id="btn"value="发送" onclick="dianji()" />
+	        </div>
+	    	
+	    	
+	    </div>
+	</body>
+</html>
+<script type="text/javascript">
+//	思路:
+//	1·添加事件
+//	2·确保输入框不能为空;为空,提示
+//	3·创建一个新的标签,用来获取到用户输入的值
+//	4·将值赋给创建的新标签
+//	5·再将新标签放在#xianshi的盒子里
+//	6·输入框清空
+	
+	//获取相关节点
+	//判断输入框不能为空;为空,提示
+	//给按钮添加一个事件
+	
+	
+	
+	$('btn').onclick = function(){
+		//判断输入框不能为空;为空,提示
+		if($('xs').value != ''){
+			//针对有值的情况
+			var oDiv=document.createElement('div');
+			//将值赋给创建的新标签
+			oDiv.innerHTML =$('xs').value.substring(0,10) + '...';
+			//再将新标签放在#xianshi的盒子里
+			$('xianshi').appendChild(oDiv);
+			
+			
+			// 为了确保当前的信息显示
+			//现将所有留言的div选中
+			var aDiv=document.querySelectorAll('#xianshi div')
+			var sumheight=0;
+			for(var i =0; i <aDiv.length; i++){
+				sumheight += aDiv[i].offsetHeight +12;
+			}
+			console.log(sumheight);
+			$('xianshi').scrollTop=sumheight      //将总高度赋给显示这个div，就出现滚动条到底部
+			
+		}else{
+			alert("输入为空！");
+		}
+	}
+
+	//定义一个函数，获取节点
+	function $(id){
+		return document.getElementById(id);
+	}
+	
+	
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 10px;height: 10px;background: red;position: absolute;}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		var adiv = document.querySelectorAll("div")
+		
+		document.onmousemove = function(eve){
+			var e = eve || window.event
+			
+//			错误的思路:先让第一个跟着鼠标走,后面一次跟上
+//			错误原因:第一个元素走了之后,原来的位置就丢了,后面的元素跟的是新位置,导致,所有元素都跟到第一个元素的位置,发生重叠
+//			adiv[0].style.left = e.clientX + "px";
+//			adiv[0].style.top = e.clientY + "px";
+//			for(var i=1;i<adiv.length;i++){
+//				adiv[i].style.left = adiv[i-1].offsetLeft + "px"
+//				adiv[i].style.top = adiv[i-1].offsetTop + "px"
+//			}
+
+//			正确思路:先让最后一个走,依次向前,最后移动第一个
+//			每次后面的元素可以找到前面元素的位置,最终第一个元素跟着鼠标走
+			for(var i=adiv.length-1;i>0;i--){
+//				设置后一个元素属性			获取前一个元素的属性
+				adiv[i].style.left = adiv[i-1].offsetLeft + "px";
+				adiv[i].style.top = adiv[i-1].offsetTop + "px";
+			}
+			adiv[0].style.left = e.clientX + "px";
+			adiv[0].style.top = e.clientY + "px";
+			
+		}
+		
+		
+	</script>
+</html>

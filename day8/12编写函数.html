@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		编写一个函数，往里面传值，tocn(23),返回的是汉字，二三
+		<hr />
+	</body>
+</html>
+<script type="text/javascript">
+	function tocn(n){
+//		传进来的值应该做一个简单的判断,自己判断
+		var txt = n.toString();
+		var outTxt = '';
+		var cn = ['零','一','二','三','四','五','六','七','八','九'];
+		for(var i=0, len=txt.length; i<len; i++){
+			outTxt += cn[txt.substring(i,i+1)];
+		}
+		return outTxt;
+	}
+	document.write(tocn(2345345435));
+</script>

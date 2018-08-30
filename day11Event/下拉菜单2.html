@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			#box {
+				width: 302px;
+				height: 32px;
+				margin: 40px auto;
+			}
+			
+			#txt {
+				width: 300px;
+				height: 30px;
+				font: 16px/30px '';
+				border: 1px solid #000;
+			}
+			
+			ul {
+				display: none;
+				border: 1px solid #aaa;
+			}
+			
+			ul li {
+				width: 300px;
+				height: 29px;
+				border-bottom: 1px solid #fff;
+				background: #bbb;
+				text-align: center;
+				font: 16px/29px '';
+				color: #fff;
+			}
+			
+			ul li.act {
+				background: #999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="text" id="txt" />
+			<ul id="con">
+				<li>link1</li>
+				<li>link2</li>
+				<li>link3</li>
+				<li>link4</li>
+				<li>link5</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oTxt = document.getElementById('txt');
+	var oUl = document.getElementById('con');
+	var aLi = document.getElementsByTagName('li');
+
+	var index = -1;
+
+	//      获取焦点
+	oTxt.onfocus = function() {
+		oUl.style.display = 'block';
+	}
+	//失去焦点
+	oTxt.onblur = function() {
+		oUl.style.display = 'none';
+	}
+
+//	鼠标事件
+	for(var i = 0; i < aLi.length; i++) {
+		//		console.log(aLi[i]);
+		aLi[i].lin = i;
+		aLi[i].onmouseover = function() {
+			//      	console.log(this.innerHTML);
+			index = this.lin;
+			classNan();
+		}
+
+	}
+	//键盘事件
+	oTxt.onkeydown = function(eve) {
+		//设置一个全局变量用来获取li的下标
+		//获取事件对象
+		var e = eve || window.Element;
+		//获取键盘事件keycode
+		var code = e.keyCode || e.which;
+		//判断上键，并获取index的值
+		if(code == 38) {
+			index = index <= 0?aLi.length - 1 : index - 1;
+			classNan();
+		}
+		//判断下键，并获取index的值
+		if(code == 40) {
+			index = index == aLi.length - 1  ?  0  : index + 1;
+			classNan();
+
+		}
+	}
+
+	function classNan() {
+		for(var j = 0; j < aLi.length; j++) {
+			aLi[j].className = '';
+		}
+		aLi[index].className = 'act';
+		oTxt.value = aLi[index].innerHTML;
+	}
+</script>

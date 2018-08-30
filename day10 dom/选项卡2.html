@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			li{list-style:none;}
+			#box{
+				width:450px;
+				margin:100px auto;
+			}
+			#con{
+				clear: both;
+				width:450px;
+				height: 50px;
+			}
+			#con li{
+				float:left;
+				width:100px;
+				height: 50px;
+				margin:0 10px 0 0;
+				font:18px/50px '';
+				color: #fff;
+				background: #f90;
+				text-align: center;
+				border-radius: 5px 5px 0 0;
+			}
+			#con li.act{
+				background:#fff;
+				color: #000;
+				border:1px solid #000;
+				border-bottom: #fff;
+			}
+			#com{
+				width:450px;
+				height:50px;
+				border:1px solid #000;
+				padding:10px 30px;
+				font:20px/50px '';
+			}
+			#com div+div{
+				display: none;
+			}
+	
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="con">
+				<ul>
+					<li class="act">国际新闻</li>
+					<li>国内新闻</li>
+					<li>陕西新闻</li>
+					<li>西安新闻</li>
+				</ul>
+			</div>
+			<div id="com">
+				<div>国际新闻的内容</div>
+				<div>国内新闻的内容</div>
+				<div>陕西新闻的内容</div>
+				<div>西安新闻的内容</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload=function(){
+		//获取li节点
+		var aLi=$('box').firstElementChild.firstElementChild.children;
+//		console.log(aLi);  测试获取li的节点
+        //获取所有的内容节点
+        var oDiv=$('box').lastElementChild.children;
+//      console.log(oDiv); 测试获取内容div节点
+        //遍历li，获取下标
+        for (var i=0; i<aLi.length; i++) {
+        	//给每一个li添加一个事件
+        	aLi[i].index=i;
+        	aLi[i].onclick=mouseclick;
+        }
+        function mouseclick(){
+        	//进行二次遍历，清除act
+        	for (var j=0; j<aLi.length; j++) {
+        		aLi[j].className='';
+        		oDiv[j].style.display='none';
+        	}
+        	//单独给li和div添加act和block
+        	aLi[this.index].className='act';
+        	oDiv[this.index].style.display='block'
+
+        }
+	}
+	
+	//获取相关节点
+	function $(id){
+		return document.getElementById(id);
+	}
+</script>

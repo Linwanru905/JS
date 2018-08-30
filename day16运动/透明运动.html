@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="con">
+			<img src="../day10 dom/img/4.jpeg" />
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var oDiv = document.getElementById('con');
+	var imge = document.getElementsByTagName('img')[0];
+	//	console.log(imge);
+	//运动三要素
+	var stopT = 10;
+	var stopB = 100;
+	//假装这是当前值
+	var num = 100;
+	var timer = null;
+
+	oDiv.onmouseover = function() {
+		removeOpcity(stopT);
+	}
+	oDiv.onmouseout = function() {
+		removeOpcity(stopB);      
+	}
+
+	function removeOpcity(stop) {
+		clearInterval(timer); //不需要 ，但习惯加
+		timer = setInterval(function() {
+			var speed = (stop - num) / 6;
+			if(speed < 0) {
+				speed = Math.floor(speed);
+			} else {
+				speed = Math.ceil(speed);
+			}
+			//停止条件
+			if(num == stop) {
+				clearInterval(timer);
+			} else {
+				num += speed;
+				imge.style.opacity = num / 100;
+				imge.style.filter = "alpha(opcity = " + num + ")"
+			}
+		}, 30)
+	}
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				border: 1px solid #000;
+				background: #00CED1;
+				position: absolute;
+				left:0;
+			}
+			
+			button {
+				width: 40px;
+				height: 10px;
+				border: 1px solid #000;
+				background: #00CED1;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" id="btn" value="按钮" />
+		<div></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var obtn = document.querySelector('#btn');
+	var odiv = document.querySelector('div');
+
+	var speed = 10;
+	var stop = 400;
+	var timer = null;
+	
+	obtn.onclick = function(){
+        clearInterval(timer);
+		timer = setInterval(function(){
+			console.log(odiv.offsetLeft)
+			if(odiv.offsetLeft >= stop) {
+				clearInterval(timer);
+				odiv.style.left = stop + "px";
+			} else {
+				odiv.style.left =odiv.offsetLeft + speed  + "px";
+			}
+
+		},30)
+	}
+</script>

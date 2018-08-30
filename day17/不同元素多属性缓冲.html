@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background: #09B8E3;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="xbox1"></div>
+
+	</body>
+
+</html>
+<script type="text/javascript">
+	var xbox1 = document.getElementById('xbox1');
+
+	document.onclick = function() {
+		move(xbox1, {
+			"top": 30,
+			"left": 100
+		});
+	}
+
+	function move(ele, json) {
+		clearInterval(ele.timer);
+		ele.timer = setInterval(function() {
+			//设置开关
+			var onOff = true;
+			//首先要遍历json
+			for(var attr in json) {
+				var iNow = attr == "opacity" ? getStyle(ele, attr) *100 :parseInt(getStyle(ele, attr));
+				var speed = (json[attr] - iNow) / 6;
+				speed = speed < 0 ? Math.floor(speed) : Math.ceil(speed);
+				//会存在先到达就停止计时器的问题，所以要设置一个开关
+				if(iNow != json[attr]) {
+					onOff = false;
+				}
+				if(json[attr] == "opacity") {
+					ele.style[attr] = (iNow + speed) / 100;
+					ele.style.filter = "alpha(opacity = " + (iNow + speed) + ")";
+				} else {
+					ele.style[attr] = iNow + speed + "px";
+				}
+			}
+			if(onOff) {
+				clearInterval(ele.timer);
+			}
+
+		}, 30)
+	}
+
+	//獲取樣式
+	function getStyle(ele, attr) {
+		if(ele.currentStyle) {
+			return ele.currentStyle[attr];
+		} else {
+			return getComputedStyle(ele, false)[attr];
+		}
+	}
+</script>

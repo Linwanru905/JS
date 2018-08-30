@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+//	var arr=[8,15,34,111,12,33,87,999];
+//	for(var i=0; i<arr.length ;i++){
+//		for(var j=0; j<arr.length -i; j++){
+//			if(arr[j]> arr[j+1]){
+//				var temp=arr[j];
+//				arr[j]=arr[j+1];
+//				arr[j+1]=temp;
+//			}
+//		}
+//	}
+// document.write(arr);
+//  var arr=[8,15,34,111,12,33,87,999];
+//  for(var i=0; i<arr.length; i++){
+//  	for(var j=0; j<arr.length-i; j++){
+//  		if(arr[j]>arr[j+1]){
+//  			var temp=arr[j];
+//  			arr[j]=arr[j+1];
+//  			arr[j+1]=temp;
+//  		}
+//  	}
+//  }
+//  document.write(arr);
+//  var arr=[8,15,34,111,12,33,87,999];
+//  for(var i=0; i <arr.length; i++){
+//  	for(var j=0; j <arr.length -i; j++){
+//  		if(arr[j]>arr[j+1]){
+//  			var temp=arr[j];
+//  			arr[j]=arr[j+1];
+//  			arr[j+1]=temp;
+//  		}
+//  	}
+//  }
+//  document.write(arr);
+    var arr=[8,15,34,111,12,33,87,999];
+    for(var i=0; i<arr.length; i++){
+    	for(var j=0; j<arr.length - i; j++){
+    		if(arr[j]>arr[j+1]){
+    			var temp=arr[j];
+    			arr[j] = arr[j+1];
+    			arr[j+1]=temp;
+    		}
+    	}
+    }
+    document.write(arr);
+
+</script>

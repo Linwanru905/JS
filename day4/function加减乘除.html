@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//加法
+	/*function sum(){
+		var pan;
+		for(var i=0; i<arguments.length; i++){
+			if(isNaN(arguments[i])){            //isNaN:非数字
+				pan=true;
+			   break;
+			}
+			
+	    }	
+	    var he=0;
+	    if(arguments.length == 0){
+	    	return he;
+	    }else if(pan){
+	    	alert('输入错误');
+	    }else {
+	    	for(var k=0; k<arguments.length; k++){
+	    		he +=Number(arguments[k]);
+	    	}
+	    	
+	    } 	
+	    return he;
+	}
+	document.write(sum(3,'哈',10));*/
+	
+	
+	
+	     //减法
+   /*   function reduce(){
+      	var pan= false;
+      	for (var i=0; i<arguments.length; i++){
+      		if(isNaN(arguments[i])){
+      			pan=true;
+      			break;
+      		}
+      	}
+      	var poor=0;
+      	if(arguments.length==0){
+      		return poor;
+      	}else if(pan){
+      		alert("输入错误");
+      	}else{
+      		for(var k=0; k<arguments.length; k++){
+      			if(k==0){
+      				poor = Number(arguments[k]);
+      			}else{
+      				poor -=Number(arguments[k]);
+      			}
+      		}
+      	}
+      	return poor;
+      	
+    }
+     document.write(reduce(3,-7,10));*/
+      
+      
+      
+       //乘法
+  /* function cheng(){
+      	var pan=false;    
+      	for(var i=0; i<=arguments.length; i++){
+      		if(isNaN(arguments[i])){
+      			pan=true;
+      			break;
+      		}
+      	}//判断参数里是否有字符串
+       
+       var ji=1;
+       for(var k=0; k<arguments.length; k++){
+       	    if(arguments[k]!=0){
+       		     ji *= Number(arguments[k]);
+       		   
+            }else{
+       		    alert('乘数为0');     //判断是否为零
+       	    }
+            
+        }
+       return ji;
+    }
+    document.write(cheng(3,3,3));  */  
+    
+    
+    
+       //除法
+    function chu(){
+	     var pan=false;
+	     for(var i=0; i<arguments.length; i++){
+	     	if(isNaN(arguments[i])){
+	     		pan=true;
+	     		break;         //判断是是否有字符串
+	     	}
+	     }
+	     
+	     var shang=1;
+	     for(var k=0; k<arguments.length; k++){
+	     	if(arguments[k]==0){
+	     		alert(0);
+	     	}else{
+	     		if(k==0)
+	     		    {shang=Number(arguments[k]);}
+	     	   else {
+	     		   shang /=Number(arguments[k]);
+	     	    } 
+	        }
+	  
+        }
+     return shang;
+    }
+    document.write(chu(2,0,2));
+
+
+
+</script>

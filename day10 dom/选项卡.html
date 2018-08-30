@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			li{list-style: none;}
+			#box{
+				width:450px;
+				margin:100px auto;
+			}
+			#kuang {
+				width:450px;
+				height:32px;
+				clear: both;
+			}
+			#kuang li{
+				float: left;
+				width:100px;
+				height:30px;
+				text-align: center;
+				font:16px/30px '';
+				background: #FF9900;
+				color: #fff;
+				margin-right: 5px;
+				border-radius: 5px 5px 0 0;
+				border:1px solid #f90;
+			}
+			#kuang li.act{
+				border:1px solid #000;
+				background:#fff;
+				color: #000000;
+				border-bottom:2px solid #fff;
+			}
+			#content{
+				font:18px/50px '';
+				height: 50px;
+				width:450px;
+				padding: 15px 30px;
+				border:1px solid #000;
+			}
+			#content div+div{
+				display: none;
+			}
+		
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="kuang">
+				<ul>
+					<li class="act">国际新闻</li>
+					<li>国内新闻</li>
+					<li>陕西新闻</li>
+					<li>西安新闻</li>
+					
+				</ul>
+			</div>
+			<div id="content">
+				<div>国际新闻的内容</div>
+				<div>国内新闻的内容</div>
+				<div>陕西新闻的内容</div>
+				<div>西安新闻的内容</div>
+				
+			</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//遍历所有的li，给li添加点击事件
+	//给当前点击的li 添加act类，其他的li去除act
+	//content的div根据上面点击的索引点击显示
+	window.onload=function(){
+		//获取相关节点
+		var oBox=document.getElementById('box');
+		//所有li部分的节点
+		var ali=oBox.firstElementChild.firstElementChild.children;
+		//所有内容部分的div
+		var aDiv=oBox.lastElementChild.children;
+//		console.log(aDiv);
+        //遍历li；并且添加事件
+        for(var i=0; i <ali.length; i++){
+        	//自定义属性
+        	ali[i].index=i;
+        	ali[i].onclick=mousclick;
+        }
+        function mousclick(){
+           //进行二次遍历，进行act的添加和删除
+           //先将li里的act清空
+           for(var j=0; j<ali.length; j++){
+           	ali[j].className='';
+           	//针对div的内容
+           	aDiv[j].style.display='none';
+           }
+           //单独给你点击的li添加act
+           ali[this.index].className='act';
+           aDiv[this.index].style.display='block';
+        }
+	
+	}
+	
+	
+</script>

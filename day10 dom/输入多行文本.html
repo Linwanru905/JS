@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<div id="box"></div>-->
+	</body>
+</html>
+<script type="text/javascript">
+	//插入50行字
+//	var box= document.getElementById('box');
+//	var txt='';
+//	for(var i=0;i<50; i++){
+//		txt += "这是第"+ i +'句，哈哈哈' +'<br>';
+//	}
+//	box.innerHTML=txt;
+
+    for(var i=0;i<50; i++){
+    	var p=document.createElement('p');        //创建一个标签
+    	p.innerHTML='我哈哈';                       //插入文字
+    	document.documentElement.appendChild(p);     //把标签添加到网页中
+    	
+    }
+
+
+
+
+</script>

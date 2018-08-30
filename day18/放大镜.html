@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 400px;
+				height: 300px;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			
+			#box img {
+				width:400px;
+				height:300px;
+			}
+			
+			#box span {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 150px;
+				height:120px;
+				background: rgba(255, 255, 255, .5);
+				display: none;
+			}
+			
+			#cont {
+				position: absolute;
+				left: 600px;
+				top: 100px;
+				width: 600px;
+				height: 400px;
+				overflow: hidden;
+				display: none;
+			}
+			
+			#cont img {
+				width: 800px;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<img src="img/4.jpg" />
+			<span></span>
+		</div>
+		<div id="cont">
+			<img src="img/4.jpg" />
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var obox = document.getElementById('box');
+	var oimage = obox.children[0];
+	var ospan = obox.children[1];
+
+	var ocont = document.getElementById('cont');
+	var oimg = ocont.children[0];
+	//	console.log(ospan,oimg);
+	obox.onmouseover = function() {
+		ospan.style.display = "block";
+		ocont.style.display = "block";
+
+		obox.onmousemove = function(eve) {
+			var e = eve || window.event;
+
+			var l = e.clientX - obox.offsetLeft - ospan.offsetWidth / 2;
+			var t = e.clientY - obox.offsetTop - ospan.offsetHeight / 2;
+
+			if(l < 0) l = 0;
+			if(t < 0) t = 0;
+			if(l > obox.offsetWidth - ospan.offsetWidth) {
+				l = obox.offsetWidth - ospan.offsetWidth
+			}
+			if(t > obox.offsetHeight - ospan.offsetHeight) {
+				t = obox.offsetHeight - ospan.offsetHeight
+			}
+			
+			//图片比例
+			var Bx = l / (obox.offsetWidth - ospan.offsetWidth);
+			var By = t / (obox.offsetHeight - ospan.offsetHeight);
+			//  		console.log(Bx,By)
+
+			oimg.style.left = -(oimg.offsetWidth - ocont.offsetWidth) * Bx + "px";
+			oimg.style.top = -(oimg.offsetHeight - ocont.offsetHeight) * By + "px";
+
+			ospan.style.left = l + "px";
+			ospan.style.top = t + "px";
+		}
+
+	}
+
+	obox.onmouseout = function() {
+		ospan.style.display = "none";
+		ocont.style.display = "none";
+	}
+</script>

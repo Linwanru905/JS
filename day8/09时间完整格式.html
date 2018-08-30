@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	var box = document.getElementById("box");
+	var S = 'AM';
+//	定时器
+	setInterval(changedate,1000);
+	
+	function changedate(){
+		//		你要做的事情
+		var timer = new Date();
+		var year = timer.getFullYear();
+		var month = timer.getMonth();
+		var dater = timer.getDate();
+		var hour = timer.getHours();
+		//判断上下午
+		/*if(hour<12){
+			S = 'AM'
+		}else{
+			S = 'PM'
+		}*/
+		S = hour<12 ? 'AM' : 'PM'
+		var minute = timer.getMinutes();
+		var second = timer.getSeconds();
+		box.innerHTML = year + '-' + month + '-' + dater +' '+ S +''+ hour + ":" + datefix2(minute) + ":" + datefix2(second);
+	}
+	changedate();
+	
+//	个位数补零
+	function datefix2(n){
+		if(n<10){
+			return '0' + n;
+		}else{
+			return n;
+		}
+	}
+</script>

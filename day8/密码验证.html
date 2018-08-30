@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		密码：<input type="text" id="txt" />
+		<button type="button" id="btn">确定</button>
+		<div id="con"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+//	简易的表单验证， 验证要求：
+//	--可以以数字开头
+//	--长度在4~12 位之间
+//  --若输入的纯数字-- - 输出：“ 简单”
+//	--若输入的数字 + 字母-- --输出：“ 一般”
+//	--若输入的数字 + 字母 + 特殊字符-- --输出：“ 难”
+    
+       
+    
+    //给按钮添加一个事件    
+    $('btn').onclick=function(){
+    	//判断txt里面的长度
+    	//获取用户输入的值
+    	var oTxt=$('txt').value;
+        if(oTxt.length<4 || oTxt.length >12){
+        	alert('输入长度过长');
+        }else{
+        	//长度够的情况下
+        	//遍历otxt字符串
+        	//设置3个开关
+        	 var a=false;   //判断数字
+        	 var b=false;   //判断大小
+        	 var c=false;   //判断特殊字符
+        	for(var i=0; i < oTxt.length; i++){
+        		//判断第一个字符在ASCII中的数值
+        		//数字
+        		if(oTxt[i].charCodeAt(0)>=48 && oTxt[i].charCodeAt(0)<=57){
+        			a = true;
+        		} 
+        		//字母
+        		if(oTxt[i].charCodeAt(0)>=65 && oTxt[i].charCodeAt(0)<= 90 || oTxt[i].charCodeAt(0)>=97 && oTxt[i].charCodeAt(0)<= 122){
+        			b = true;  
+        		}
+        		//特殊字符
+        		if(oTxt[i].charCodeAt(0)>=32 && oTxt[i].charCodeAt(0)<= 47 ){
+        			c = true;
+        		}
+        	}
+        	//对开关进行一个判断
+        	if(a && b && c){
+        		$('con').innerHTML='hard';
+        	}else if(a && b && !c){
+        		$('con').innerHTML='normal'
+        	}else if(a && !b && !c){
+        		$('con').innerHTML='easy';
+        	}
+        	
+        }
+    	
+    }
+
+    //获取节点
+	function $(id){
+		return document.getElementById(id);
+	}
+</script>

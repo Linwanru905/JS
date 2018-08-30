@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p>检测用户名不能用数字开头</p>
+		用户:<input type="text" id="admin" />
+		<button type="button" id="anniu" onclick="ti()">提交</button>
+	</body>
+
+</html>
+<script type="text/javascript">
+	function ti() {
+		var txt = admin.value;              //获取用户输入的值
+//			document.write(txt[i]);
+            if(isNaN(txt[0])){
+            	console.log(txt);
+            }else {
+            	alert("输入错误！");
+            }
+	}
+</script>

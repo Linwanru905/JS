@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*var i=0;
+	for(i; i<6; i++){
+		var j=0;
+		for(j;j<2*i+1;j++){
+			document.write( "*" + " ");	
+		}
+		document.write("<br />")
+		
+		
+	}*/
+	
+	for(var i=0; i<6; i++){
+		for(var j=6; j>i; j--){
+			document.write("&nbsp");
+		}
+		for(var k=0; k<i*2 +1; k++){
+			document.write( "*");	
+		}
+		document.write("<br />");
+	}
+	for(var i=5;i>0; i--){
+		for(var y=6;y>=i;y--){
+			document.write("&nbsp");
+		}
+		for(var z=0;z<2*i-1;z++){
+			document.write( "*");
+		}
+		document.write("<br />");
+	}
+	
+</script>

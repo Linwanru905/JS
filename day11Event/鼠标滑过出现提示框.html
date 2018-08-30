@@ -1,0 +1,100 @@
+<!DOCTYPE 
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.con {
+				width:500px;
+				margin:0 0 10px 10px;
+				background:azure;
+				overflow: hidden;
+			}
+			
+			.box {
+				width:500px;
+				margin:0 0 10px 10px;
+				background:azure;
+			}
+			
+			p {
+				border: 1px solid #000;
+				padding: 5px;
+				width:300px;
+				display: none;
+				position: absolute;
+				background: #999;
+				z-index: 10;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="con">
+			1.这是第一个新闻哈哈哈哈哈哈哈哈哈啊哈
+			<p class="com">
+				是第一个新闻哈哈哈哈哈哈哈哈哈啊是第一个新闻哈哈哈哈哈哈哈哈哈啊是第一个新闻哈哈哈哈哈哈哈哈哈啊是第一个新闻哈哈哈哈哈哈哈哈哈啊是第一个新闻哈哈哈哈哈哈哈哈哈啊是第一个新闻哈哈哈哈哈哈哈哈哈啊
+			</p>
+		</div>
+		<div class="box">
+			2.这是第二个新闻哈哈哈哈哈哈哈哈哈啊哈
+			<p class="bom">
+				个新闻哈哈哈哈哈哈哈哈个新闻哈哈哈哈哈哈哈哈个新闻哈哈哈哈哈哈哈哈个新闻哈哈哈哈哈哈哈哈个新闻哈哈哈哈哈哈哈哈个新闻哈哈哈哈哈哈哈哈
+			</p>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//	.跟随鼠标的提示框
+
+	//获取节点
+	var oCon = document.querySelector('.con');
+	var oBox = document.querySelector('.box');
+	var oCom = document.querySelector('.com');
+	var oBom = document.querySelector('.bom');
+	//添加鼠标滑入事件mouseover
+	oCon.onmousemove = function(eve) {
+		var e = eve || window.event;
+		//		console.log(e);
+		//ocom获取坐标
+		topleft(oCom, e);
+		oCom.style.display = 'block';
+	}
+
+	oCon.onmouseleave = function(eve) {
+		var e = eve || window.event;
+		topleft(oCom, e);
+		oCom.style.display = 'none';
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	oBox.onmousemove = function(eve) {
+		var e = eve || window.event;
+		topleft(oBom, e);
+		oBom.style.display = 'block';
+	}
+	oBox.onmouseleave = function(eve) {
+		var e = eve || window.event;
+		topleft(oBom, e);
+		oBom.style.display = 'none';
+	}
+
+	function topleft(val, e) {
+		val.style.left = e.clientX  + 'px';
+		val.style.top = e.clientY + 'px';
+	}
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	 console.log(txt);
+     // 打印 'undefined'
+ 
+      var txt= 'hello world';
+ 
+      hoisting();
+ 
+      function hoisting(){
+       console.log(txt);      //先找函数体没有才找父元素
+      // 打印 'undefined'
+ 
+       var txt= 'hello world';
+       console.log(txt);
+     // 打印 'hello world'
+    }
+
+</script>
